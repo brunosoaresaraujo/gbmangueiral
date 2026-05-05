@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Design System | Styleguide</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      /* Core Backgrounds */
+      --bg-0: #0F0F0F;
+      --bg-1: #2B2B2B;
+      --bg-2: #1A1A1A;
+      
+      /* Primary Brand (Gracie Barra Red) */
+      --primary: #C8102E;
+      --primary-light: #E81A3B;
+      --primary-dark: #A00B23;
+      
+      /* Accents */
+      --blue: #3B82F6;
+      --emerald: #10b981;
+      --red: #C8102E;
+      
+      /* Typography */
+      --text: #FFFFFF;
+      --muted: #6B6B6B;
+      
+      /* UI Elements */
+      --glass: rgba(255,255,255,0.03);
+      --border-p: rgba(200,16,46,0.25);
+      --border-s: rgba(229, 229, 229, 0.15);
+      --grey-light: #E5E5E5;
+    }
+
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-0);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Grain & Mesh Overlay ─────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,16,46,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 70%, rgba(234,88,12,0.06) 0%, transparent 55%);
+      background-size: 400% 400%;
+      animation: meshDrift 25s ease-in-out infinite;
+    }
+
+    @keyframes meshDrift {
+      0%   { background-position: 0% 50%, 100% 0%; }
+      33%  { background-position: 50% 0%, 0% 100%; }
+      66%  { background-position: 100% 50%, 50% 0%; }
+      100% { background-position: 0% 50%, 100% 0%; }
+    }
+
+    /* ─── Scroll Reveal Animations ─────────────────────────────────────────── */
+    @keyframes animationIn {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+    }
+    @keyframes animationInLeft {
+      0% { opacity: 0; transform: translateX(-40px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0px); }
+    }
+    @keyframes animationInRight {
+      0% { opacity: 0; transform: translateX(40px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0px); }
+    }
+
+    .reveal { opacity: 0; }
+    .reveal.visible { animation: animationIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: animationInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: animationInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    .stagger-up .reveal-child { opacity: 0; }
+    .stagger-up.visible .reveal-child { animation: animationIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .stagger-up.visible .reveal-child:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-up.visible .reveal-child:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-up.visible .reveal-child:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-up.visible .reveal-child:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-up.visible .reveal-child:nth-child(5) { animation-delay: 0.5s; }
+
+    /* ─── Typography Utils ────────────────────────────────────── */
+    .text-grad {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--primary);
+    }
+
+    /* ─── Navigation ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(8,8,10,0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-s);
+      transition: background 0.3s;
+    }
+    
+    .nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      line-height: 1;
+      font-size: 1.5rem;
+      position: relative;
+    }
+    .logo-text::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 100%; height: 2.5px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+    
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 400; color: var(--muted);
+      letter-spacing: -0.01em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── Glitch Effect & Text Reveals ─────────────────────────────────────────── */
+    @keyframes glitch-r {
+      0%, 90%, 100% { text-shadow: none; }
+      91% { text-shadow: -3px 0 rgba(200,16,46,0.9), 3px 0 rgba(200,16,46,0.7); }
+      93% { text-shadow: 3px 0 rgba(200,16,46,0.9), -3px 0 rgba(200,16,46,0.7); }
+      95% { text-shadow: -2px 0 rgba(232,26,59,0.8), 2px 0 rgba(234,88,12,0.8); }
+      97% { text-shadow: none; }
+    }
+    .glitch-text:hover { animation: glitch-r 0.6s steps(1) forwards; }
+    
+    @keyframes textSlide {
+      0% { transform: translateY(110%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .text-clip-anim { overflow: hidden; display: inline-flex; flex-direction: column; }
+    .text-clip-anim > span {
+      display: inline-block;
+      animation: textSlide 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+    .text-clip-anim > span:nth-child(1) { animation-delay: 0.1s; }
+    .text-clip-anim > span:nth-child(2) { animation-delay: 0.2s; }
+    .text-clip-anim > span:nth-child(3) { animation-delay: 0.3s; }
+
+
+    /* ─── Hero Section ────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(200,16,46,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,16,46,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%);
+    }
+
+    .hero-accent-line {
+      position: absolute;
+      left: 48%; top: 15%; bottom: 15%;
+      width: 1px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(200,16,46,0.4), rgba(232,26,59,0.2), transparent);
+      opacity: 0.6;
+    }
+    .hero-accent-line::before {
+      content: ''; position: absolute;
+      top: 0; left: -3px; width: 7px; height: 40px;
+      background: linear-gradient(to bottom, transparent, rgba(200,16,46,0.8), transparent);
+      border-radius: 4px;
+      animation: accentPulse 4s ease-in-out infinite;
+      box-shadow: 0 0 16px rgba(200,16,46,0.4);
+    }
+    @keyframes accentPulse {
+      0%, 100% { top: 0%; opacity: 0; }
+      10%, 90% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .hero-split {
+      position: relative; z-index: 1;
+      flex: 1; display: flex;
+      align-items: center; justify-content: space-between;
+      padding: 0 48px;
+    }
+
+    .hero-left {
+      max-width: 50%;
+      display: flex; flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.8rem; color: var(--primary-light);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500;
+    }
+    
+    .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px rgba(200,16,46,0.8);
+      animation: pulse-dot-anim 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot-anim {
+      0%, 100% { box-shadow: 0 0 8px rgba(200,16,46,0.6); transform: scale(1); }
+      50% { box-shadow: 0 0 20px rgba(200,16,46,1); transform: scale(1.2); }
+    }
+
+    .hero-headline {
+      font-size: clamp(64px, 8vw, 100px);
+      font-weight: 700; letter-spacing: -0.02em;
+      line-height: 0.95; text-transform: uppercase;
+    }
+    
+    .hero-headline .highlight {
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 60%, var(--primary-light) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-headline .highlight::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light), transparent);
+      animation: underlineShimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes underlineShimmer {
+      0%, 100% { opacity: 0.4; transform: scaleX(0.7); transform-origin: left; }
+      50% { opacity: 1; transform: scaleX(1); transform-origin: left; }
+    }
+
+    .hero-desc {
+      font-size: 1.1rem; line-height: 1.7; color: var(--muted);
+      font-weight: 300; max-width: 480px;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+
+    /* ─── Buttons ────────────────────────────────────────── */
+    @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+    
+    .btn-primary {
+      position: relative; display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; font-size: 16px; font-weight: 600;
+      letter-spacing: 0.01em; cursor: pointer; border: none; color: #fff;
+      background: transparent;
+      overflow: hidden; border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.3);
+      transition: box-shadow 0.3s, transform 0.3s;
+      z-index: 1;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; left: 50%; top: 50%;
+      width: 300%; height: 300%;
+      background: conic-gradient(from 0deg, transparent 0 340deg, var(--text) 360deg);
+      animation: spin 2s linear infinite;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; inset: 1px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      border-radius: 5px; z-index: -1;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 8px 32px rgba(200,16,46,0.45), 0 0 0 1px rgba(232,26,59,0.3);
+      transform: translateY(-2px);
+    }
+    .btn-primary:hover::before { opacity: 0.8; }
+    
+    .btn-primary .btn-text { position: relative; z-index: 1; }
+    .btn-primary:hover .btn-text { animation: glitch-r 0.5s steps(1) forwards; }
+    
+    .btn-primary iconify-icon { position: relative; z-index: 1; transition: transform 0.3s; }
+    .btn-primary:hover iconify-icon { transform: translateX(4px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; font-size: 16px; font-weight: 600;
+      letter-spacing: 0.01em; color: var(--text); background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-s); border-radius: 4px;
+      cursor: pointer; transition: all 0.3s;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .btn-ghost:hover {
+      color: var(--text); border-color: rgba(200,16,46,0.3);
+      box-shadow: 0 4px 24px rgba(200,16,46,0.1), 0 0 0 1px rgba(200,16,46,0.1);
+      background: rgba(200,16,46,0.05);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Hero Visuals ────────────────────────────────────────── */
+    .hero-right {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 55%; z-index: 0;
+      mask-image: linear-gradient(to right, transparent 0%, black 40%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.8) contrast(1.1) brightness(0.9);
+      opacity: 0.7;
+    }
+
+    .hero-float-metrics {
+      position: absolute; z-index: 2; right: 40%; top: 50%;
+      transform: translateY(-50%); display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .hero-metric {
+      padding: 16px 24px;
+      background: rgba(12,12,16,0.6);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(200,16,46,0.15); border-radius: 12px;
+      display: flex; align-items: center; gap: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
+      animation: floatMetric 6s ease-in-out infinite;
+    }
+    .hero-metric:nth-child(2) { animation-delay: -2s; margin-left: 40px; }
+    .hero-metric:nth-child(3) { animation-delay: -4s; margin-left: -20px; }
+
+    @keyframes floatMetric {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-metric-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 20px;
+    }
+    .hero-metric-label {
+      font-size: 0.65rem; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .hero-metric-value { font-size: 1.2rem; font-weight: 300; color: var(--text); }
+    .hero-metric-value span { color: var(--primary-light); font-weight: 500; }
+
+    /* ─── Generic Sections ────────────────────────────────────────── */
+    .sg-section {
+      padding: 120px 48px;
+      position: relative;
+      border-top: 1px solid var(--border-s);
+      background: var(--bg-1);
+    }
+    
+    .sg-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 32px 32px; pointer-events: none;
+    }
+
+    .sg-section-header { margin-bottom: 64px; }
+    .sg-title {
+      font-size: clamp(28px, 4vw, 36px); font-weight: 600;
+      letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 16px;
+    }
+    .sg-desc {
+      font-size: 1.1rem; color: var(--muted); font-weight: 300;
+      max-width: 600px; line-height: 1.6;
+    }
+
+    /* ─── Typography ────────────────────────────────────────── */
+    .typo-grid {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px;
+    }
+    .typo-sample {
+      padding: 32px; background: var(--glass);
+      border: 1px solid var(--border-s); border-radius: 8px;
+    }
+    .typo-row {
+      display: flex; align-items: baseline; gap: 24px;
+      padding: 24px 0; border-bottom: 1px solid var(--border-s);
+    }
+    .typo-row:last-child { border-bottom: none; }
+    .typo-label {
+      font-family: monospace; font-size: 0.8rem;
+      color: var(--primary-light); width: 140px; flex-shrink: 0;
+    }
+    .typo-value.h1 { font-size: 64px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .typo-value.h2 { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .typo-value.h3 { font-size: 24px; font-weight: 600; }
+    .typo-value.body-lg { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .typo-value.body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .typo-value.caption { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ─── Color System ────────────────────────────────────────── */
+    .color-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
+    }
+    .color-card {
+      border-radius: 8px; overflow: hidden; border: 1px solid var(--border-s);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .color-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+    
+    .color-swatch { height: 120px; width: 100%; position: relative; }
+    .color-info { padding: 16px; background: var(--bg-0); }
+    .color-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 4px; }
+    .color-hex { font-family: monospace; font-size: 0.8rem; color: var(--muted); }
+    
+    .swatch-primary { background: var(--primary); }
+    .swatch-primary-light { background: var(--primary-light); }
+    .swatch-primary-light { background: var(--primary-light); }
+    .swatch-bg0 { background: var(--bg-0); border-bottom: 1px solid var(--border-s); }
+    .swatch-bg1 { background: var(--bg-1); border-bottom: 1px solid var(--border-s); }
+    .swatch-muted { background: var(--muted); }
+
+    /* ─── UI Components ────────────────────────────────────────── */
+    .comp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    }
+    .comp-box {
+      padding: 40px; background: var(--bg-0);
+      border: 1px solid var(--border-s); border-radius: 12px;
+      display: flex; flex-direction: column; gap: 32px;
+      align-items: flex-start;
+      box-shadow: inset 0 0 60px rgba(255,255,255,0.01);
+    }
+    
+    .comp-title {
+      font-size: 1rem; font-weight: 500; color: var(--muted);
+      border-bottom: 1px solid var(--border-s); padding-bottom: 12px;
+      width: 100%; margin-bottom: 8px;
+    }
+
+    /* Form Inputs */
+    .input-group { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+    .input-label { font-size: 0.8rem; color: var(--muted); }
+    .input-field {
+      width: 100%; padding: 14px 18px; font-size: 0.9rem;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border-s);
+      color: var(--text); border-radius: 6px; outline: none; transition: all 0.3s;
+    }
+    .input-field:focus {
+      border-color: rgba(200,16,46,0.5);
+      box-shadow: 0 0 0 3px rgba(200,16,46,0.15);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* Badges */
+    .badges-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 999px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .badge-primary {
+      color: var(--primary-light); background: rgba(200,16,46,0.1);
+      border: 1px solid rgba(200,16,46,0.3);
+      box-shadow: 0 0 12px rgba(200,16,46,0.2);
+    }
+    .badge-secondary {
+      color: var(--text); background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .badge-success {
+      color: var(--emerald); background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+    }
+
+    /* Cards - Flashlight Effect */
+    .feature-card {
+      padding: 32px; background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border-s); border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden; width: 100%;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(200, 16, 46, 0.12),
+        transparent 40%
+      );
+      opacity: 0; transition: opacity 0.5s; pointer-events: none; z-index: 0;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px); border-color: rgba(200,16,46,0.3);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(200,16,46,0.1);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(200,16,46,0.08); border: 1px solid rgba(200,16,46,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 24px; margin-bottom: 24px;
+      position: relative; z-index: 1;
+    }
+    .feature-card h3 { font-size: 1.25rem; font-weight: 400; margin-bottom: 12px; position: relative; z-index: 1;}
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1;}
+
+    /* Modals / Accordions */
+    .accordion { width: 100%; border: 1px solid var(--border-s); border-radius: 8px; overflow: hidden; }
+    .acc-item { border-bottom: 1px solid var(--border-s); background: var(--bg-0); transition: background 0.3s; }
+    .acc-item:last-child { border-bottom: none; }
+    .acc-header {
+      padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; font-weight: 500; font-size: 0.95rem; user-select: none;
+    }
+    .acc-header:hover { background: rgba(255,255,255,0.02); }
+    .acc-icon { color: var(--primary); transition: transform 0.3s; }
+    .acc-item.open .acc-icon { transform: rotate(180deg); }
+    .acc-content {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+      background: rgba(255,255,255,0.01);
+    }
+    .acc-item.open .acc-content { max-height: 200px; }
+    .acc-inner { padding: 0 24px 24px; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* Interactive Backgrounds & Animations Block */
+    .anim-showcase {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;
+    }
+    .anim-box {
+      height: 200px; border-radius: 12px; border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden; background: var(--bg-0);
+    }
+    
+    .bg-wave {
+      background-image: repeating-linear-gradient(90deg, rgba(200,16,46,0.05) 0px, rgba(200,16,46,0.05) 1px, transparent 1px, transparent 20px);
+      background-size: 40px 100%;
+      animation: panLeft 4s linear infinite;
+    }
+    @keyframes panLeft { from { background-position: 0 0; } to { background-position: -40px 0; } }
+
+    .pulse-ring {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(200,16,46,0.2);
+      position: relative;
+    }
+    .pulse-ring::before, .pulse-ring::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid var(--primary); animation: ripple 2s linear infinite;
+    }
+    .pulse-ring::after { animation-delay: 1s; }
+    
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="mesh-bg"></div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="main-nav">
+    <a href="#">
+      <img src="assets/img/logo-svg.svg" alt="Gracie Barra Mangueiral" style="height: 40px; width: auto;">
+    </a>
+    <div class="nav-links">
+      <a href="#typography">Typography</a>
+      <a href="#colors">Colors</a>
+      <a href="#components">Components</a>
+      <a href="#animations">Animations</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn-ghost" style="padding: 10px 20px; font-size: 0.8rem;" href="#download">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO SECTION (PRIMEIRA DOBRA) ─── -->
+  <section id="hero">
+    <canvas id="hero-webgl" style="position: absolute; inset: 0; pointer-events: none; z-index:0;"></canvas>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-accent-line"></div>
+    
+    <div class="hero-split">
+      <div class="hero-left stagger-up reveal">
+        <div class="hero-eyebrow reveal-child">
+          <div class="pulse-dot"></div>
+          Premium Design System v2.0
+        </div>
+        
+        <h1 class="hero-headline reveal-child text-clip-anim">
+          <span>Design that</span>
+          <span><span class="highlight glitch-text">Demands</span></span>
+          <span>Attention.</span>
+        </h1>
+        
+        <p class="hero-desc reveal-child">
+          A highly crafted, dark-mode focused design system built for performance, motion, and deep visual impact. Reusable components with a brutalist yet refined aesthetic.
+        </p>
+        
+        <div class="hero-actions reveal-child">
+          <button class="btn-primary">
+            <span class="btn-text">Explore Components</span>
+            <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+          </button>
+          <button class="btn-ghost">
+            <iconify-icon icon="lucide:github"></iconify-icon>
+            View Documentation
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-right reveal-right">
+        <!-- Imagem abstrata dark mode / tech -->
+        <img src="assets/img/img-mulher-jj.png" alt="Gracie Barra Hero Image">
+      </div>
+
+      <!-- Floating HUD Metrics -->
+      <div class="hero-float-metrics">
+        <div class="hero-metric">
+          <div class="hero-metric-icon"><iconify-icon icon="lucide:layers"></iconify-icon></div>
+          <div>
+            <div class="hero-metric-label">Components</div>
+            <div class="hero-metric-value"><span>42+</span> Elements</div>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-icon"><iconify-icon icon="lucide:zap"></iconify-icon></div>
+          <div>
+            <div class="hero-metric-label">Performance</div>
+            <div class="hero-metric-value"><span>99</span>/100</div>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-icon"><iconify-icon icon="lucide:palette"></iconify-icon></div>
+          <div>
+            <div class="hero-metric-label">Color System</div>
+            <div class="hero-metric-value">Fully <span>Dynamic</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TYPOGRAPHY ─── -->
+  <section id="typography" class="sg-section">
+    <div class="sg-section-header reveal">
+      <span class="section-label">Foundations</span>
+      <h2 class="sg-title text-grad">Typography System</h2>
+      <p class="sg-desc">Using 'Inter' for highly readable body text and structural elements, paired with 'Bebas Neue' for high-impact display moments.</p>
+    </div>
+
+    <div class="typo-grid stagger-up reveal">
+      <div class="typo-sample reveal-child">
+        <h3 class="comp-title" style="border:none; margin-bottom: 24px;">Display & Headings (Inter)</h3>
+        
+        <div class="typo-row">
+          <span class="typo-label">h1 / 64px / 700</span>
+          <span class="typo-value h1">Hero Title</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-label">h2 / 36px / 600</span>
+          <span class="typo-value h2">Section Header</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-label">h3 / 24px / 600</span>
+          <span class="typo-value h3">Card Title</span>
+        </div>
+      </div>
+
+      <div class="typo-sample reveal-child">
+        <h3 class="comp-title" style="border:none; margin-bottom: 24px;">Body & Interface</h3>
+        
+        <div class="typo-row">
+          <span class="typo-label">body-lg / 18px</span>
+          <span class="typo-value body-lg">Large body text used for introductions and key descriptions.</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-label">body / 16px</span>
+          <span class="typo-value body">Standard reading text. Highly legible with optimal line-height for long form content and UI text.</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-label">caption / 12px</span>
+          <span class="typo-value caption">Metadata, Labels & Eyebrows</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLORS ─── -->
+  <section id="colors" class="sg-section">
+    <div class="sg-section-header reveal">
+      <span class="section-label">Foundations</span>
+      <h2 class="sg-title text-grad">Color Palette</h2>
+      <p class="sg-desc">Uma base super escura (#0F0F0F) estruturada por tons de cinza elegantes e acentuada pelo vibrante Vermelho Gracie Barra (#C8102E) para focar a atenção e guiar ações.</p>
+    </div>
+
+        <div class="color-grid stagger-up reveal">
+      <div class="color-card reveal-child">
+        <div class="color-swatch swatch-bg0"></div>
+        <div class="color-info">
+          <div class="color-name">Background 0 (Preto)</div>
+          <div class="color-hex">#0F0F0F</div>
+        </div>
+      </div>
+      <div class="color-card reveal-child">
+        <div class="color-swatch swatch-bg1"></div>
+        <div class="color-info">
+          <div class="color-name">Background 1 (Cinza Escuro)</div>
+          <div class="color-hex">#2B2B2B</div>
+        </div>
+      </div>
+      <div class="color-card reveal-child">
+        <div class="color-swatch swatch-muted"></div>
+        <div class="color-info">
+          <div class="color-name">Muted (Cinza Médio)</div>
+          <div class="color-hex">#6B6B6B</div>
+        </div>
+      </div>
+      <div class="color-card reveal-child">
+        <div class="color-swatch" style="background: var(--grey-light);"></div>
+        <div class="color-info">
+          <div class="color-name">Borders (Cinza Claro)</div>
+          <div class="color-hex">#E5E5E5</div>
+        </div>
+      </div>
+      <div class="color-card reveal-child">
+        <div class="color-swatch swatch-primary"></div>
+        <div class="color-info">
+          <div class="color-name">GB Red (Primária)</div>
+          <div class="color-hex">#C8102E</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPONENTS ─── -->
+  <section id="components" class="sg-section">
+    <div class="sg-section-header reveal">
+      <span class="section-label">UI Toolkit</span>
+      <h2 class="sg-title text-grad">Interactive Components</h2>
+      <p class="sg-desc">Reusable elements featuring micro-interactions, hover states, and glassmorphism textures.</p>
+    </div>
+
+    <div class="comp-grid stagger-up reveal">
+      <!-- Buttons -->
+      <div class="comp-box reveal-child">
+        <div class="comp-title">Buttons & CTAs</div>
+        <button class="btn-primary">
+          <span class="btn-text">Primary Action</span>
+          <iconify-icon icon="lucide:zap"></iconify-icon>
+        </button>
+        <button class="btn-ghost">
+          <iconify-icon icon="lucide:settings"></iconify-icon>
+          Secondary Ghost
+        </button>
+      </div>
+
+      <!-- Inputs -->
+      <div class="comp-box reveal-child">
+        <div class="comp-title">Form Elements</div>
+        <div class="input-group">
+          <label class="input-label">Email Address</label>
+          <input type="email" class="input-field" placeholder="Enter your email...">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Password</label>
+          <input type="password" class="input-field" value="secretpassword123">
+        </div>
+      </div>
+
+      <!-- Badges & Tags -->
+      <div class="comp-box reveal-child">
+        <div class="comp-title">Badges & Tags</div>
+        <div class="badges-row">
+          <div class="badge badge-primary"><iconify-icon icon="lucide:star"></iconify-icon> Premium</div>
+          <div class="badge badge-secondary">Neutral Tag</div>
+          <div class="badge badge-success"><iconify-icon icon="lucide:check-circle"></iconify-icon> Active</div>
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="comp-box reveal-child">
+        <div class="comp-title">Accordion / FAQ</div>
+        <div class="accordion">
+          <div class="acc-item">
+            <div class="acc-header">How does the rendering work? <iconify-icon icon="lucide:chevron-down" class="acc-icon"></iconify-icon></div>
+            <div class="acc-content">
+              <div class="acc-inner">We utilize a custom WebGL pipeline blended with standard CSS DOM elements to achieve high framerate ambient backgrounds without sacrificing accessibility.</div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <div class="acc-header">Is this fully responsive? <iconify-icon icon="lucide:chevron-down" class="acc-icon"></iconify-icon></div>
+            <div class="acc-content">
+              <div class="acc-inner">Yes, every component is built with fluid typography and CSS grid/flexbox to adapt perfectly to mobile and tablet devices.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="comp-box reveal-child" style="grid-column: 1 / -1; align-items: stretch;">
+        <div class="comp-title">Feature Cards (Hover to interact)</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; width: 100%;">
+          
+          <div class="feature-card">
+            <div class="feature-icon"><iconify-icon icon="lucide:activity"></iconify-icon></div>
+            <h3>Real-time Tracking</h3>
+            <p>Monitor your performance metrics with sub-millisecond latency. Built for applications that demand perfection.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><iconify-icon icon="lucide:shield"></iconify-icon></div>
+            <h3>Enterprise Security</h3>
+            <p>State of the art encryption protocols protect your data both in transit and at rest across global edges.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ANIMATIONS & MOTIONS ─── -->
+  <section id="animations" class="sg-section">
+    <div class="sg-section-header reveal">
+      <span class="section-label">Motions</span>
+      <h2 class="sg-title text-grad">Animation Patterns</h2>
+      <p class="sg-desc">Dynamic states and ambient background effects that bring the interface to life.</p>
+    </div>
+
+    <div class="anim-showcase stagger-up reveal">
+      <div class="anim-box reveal-child bg-wave">
+        <span style="position:relative; z-index:2; font-weight: 500; letter-spacing: 0.1em; color: var(--primary);">CSS PATTERN PANNING</span>
+      </div>
+      
+      <div class="anim-box reveal-child">
+        <div class="pulse-ring"></div>
+        <span style="position:absolute; bottom: 20px; font-size: 0.75rem; color: var(--muted);">RIPPLE EFFECT</span>
+      </div>
+
+      <div class="anim-box reveal-child">
+        <h2 class="hero-headline" style="font-size: 2rem;"><span class="highlight glitch-text">HOVER ME</span></h2>
+        <span style="position:absolute; bottom: 20px; font-size: 0.75rem; color: var(--muted);">GLITCH & SHIMMER</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script>
+    // Scroll Reveal Logic
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-up');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Flashlight Mouse Tracking
+    document.querySelectorAll('.feature-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // Accordion Logic
+    document.querySelectorAll('.acc-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isOpen = item.classList.contains('open');
+        
+        // Close siblings
+        const siblings = item.parentElement.querySelectorAll('.acc-item');
+        siblings.forEach(sib => sib.classList.remove('open'));
+        
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // WebGL Ambient Background (Simplified)
+    (function() {
+      const canvas = document.getElementById('hero-webgl');
+      if (!canvas) return;
+      const gl = canvas.getContext('webgl', { alpha: true });
+      if (!gl) return;
+
+      function resize() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const vsrc = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0,1);}`;
+      const fsrc = `
+        precision mediump float;
+        uniform float u_time;
+        uniform vec2 u_res;
+
+        vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+        float snoise(vec2 v){
+          const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+          vec2 i  = floor(v + dot(v, C.yy) );
+          vec2 x0 = v -   i + dot(i, C.xx);
+          vec2 i1;
+          i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+          vec4 x12 = x0.xyxy + C.xxzz;
+          x12.xy -= i1;
+          i = mod(i, 289.0);
+          vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+          vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+          m = m*m ;
+          m = m*m ;
+          vec3 x = 2.0 * fract(p * C.www) - 1.0;
+          vec3 h = abs(x) - 0.5;
+          vec3 ox = floor(x + 0.5);
+          vec3 a0 = x - ox;
+          m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+          vec3 g;
+          g.x  = a0.x  * x0.x  + h.x  * x0.y;
+          g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+          return 130.0 * dot(m, g);
+        }
+
+        void main(){
+          vec2 uv = gl_FragCoord.xy / u_res;
+          float t = u_time * 0.1;
+          float n = snoise(uv * 2.0 + vec2(t, t)) * 0.5 + 0.5;
+          
+          vec3 c1 = vec3(0.976, 0.451, 0.086); // Orange
+          vec3 c2 = vec3(0.047, 0.047, 0.062); // Dark
+          
+          vec3 col = mix(c2, c1, n * 0.15); // Subtle blend
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `;
+
+      function compile(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      const prog = gl.createProgram();
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, vsrc));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fsrc));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+      const aPos = gl.getAttribLocation(prog, 'a_pos');
+      gl.enableVertexAttribArray(aPos);
+      gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+      const uTime = gl.getUniformLocation(prog, 'u_time');
+      const uRes = gl.getUniformLocation(prog, 'u_res');
+
+      function render(t) {
+        gl.uniform1f(uTime, t * 0.001);
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+    })();
+
+    // Nav Scroll logic
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(8,8,10,0.95)';
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
+      } else {
+        nav.style.background = 'rgba(8,8,10,0.72)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

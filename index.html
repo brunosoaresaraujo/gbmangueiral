@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracie Barra Mangueiral | Jiu-Jitsu Para Todos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="main-nav">
+    <a href="#hero">
+      <img src="assets/img/logo-svg.svg" alt="Gracie Barra Mangueiral" class="nav-logo">
+    </a>
+    <div class="nav-links">
+      <a href="#professors">Professores</a>
+      <a href="#schedule">Horários</a>
+      <a href="#legacy">Sobre</a>
+      <a href="#campaign">Campanha</a>
+      <a href="#contact">Contato</a>
+    </div>
+    <a href="https://wa.me/5561996898364" class="btn-ghost"
+      style="padding: 10px 24px; font-size: 14px; text-decoration: none;">Agendar Aula</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="hero-bg-wrapper" id="parallax-bg">
+      <video class="slide-video active" id="vid-1" autoplay muted playsinline>
+        <source src="assets/img/jiu-adulto.mp4" type="video/mp4">
+      </video>
+      <video class="slide-video" id="vid-2" muted playsinline>
+        <source src="assets/img/nogi-jj.mp4" type="video/mp4">
+      </video>
+      <video class="slide-video" id="vid-3" muted playsinline>
+        <source src="assets/img/bjj-feminino.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-gradient"></div>
+
+    <div class="slider-controls reveal" style="animation-delay: 1.3s;">
+      <div class="slide-indicator active" data-target="0">
+        <span class="slide-title">01 // Jiu-Jitsu</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="prog-1"></div>
+        </div>
+      </div>
+      <div class="slide-indicator" data-target="1">
+        <span class="slide-title">02 // No-Gi</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="prog-2"></div>
+        </div>
+      </div>
+      <div class="slide-indicator" data-target="2">
+        <span class="slide-title">03 // Feminino</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="prog-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="eyebrow reveal" style="animation-delay: 0.1s;">
+        <div class="pulse-dot"></div>
+        Escola Oficial Gracie Barra
+      </div>
+
+      <h1 class="hero-title text-clip-anim visible">
+        <span>A força que você procura,</span>
+        <span><span class="highlight-red glitch-text">está em você.</span></span>
+      </h1>
+
+      <p class="hero-desc reveal" style="animation-delay: 0.5s;">
+        Transforme sua mente, corpo e espírito através da arte suave.
+        Junte-se à maior comunidade de Jiu-Jitsu do mundo no Mangueiral.
+      </p>
+
+      <div class="hero-actions reveal" style="animation-delay: 0.7s;">
+        <a href="#schedule" class="btn-primary">
+          <span style="position:relative; z-index:1;">Horários de treino</span>
+
+        </a>
+        <a href="#professors" class="btn-ghost">
+
+          Saber mais
+        </a>
+      </div>
+    </div>
+
+    <!-- FLASHLIGHT FLOATING CARD -->
+    <div class="hero-float-card reveal" style="animation-delay: 0.9s;" id="float-card">
+      <div class="card-content">
+        <div class="stat-row">
+          <div class="stat-icon"><iconify-icon icon="lucide:medal"></iconify-icon></div>
+          <div class="stat-info">
+            <div class="label">Metodologia</div>
+            <div class="val">Comprovada</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-icon"><iconify-icon icon="lucide:users"></iconify-icon></div>
+          <div class="stat-info">
+            <div class="label">Ambiente</div>
+            <div class="val">Familiar</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-icon"><iconify-icon icon="lucide:shield-check"></iconify-icon></div>
+          <div class="stat-info">
+            <div class="label">Defesa Pessoal</div>
+            <div class="val">Para Todos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator reveal" style="animation-delay: 1.1s;">
+      <div class="mouse"></div>
+      <span class="scroll-text">Role para explorar</span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section id="hero-stats">
+    <div class="stats-container reveal">
+      <div class="stat-item">
+        <span class="stat-val">17Hs</span>
+        <span class="stat-label">Treino por semana</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-val">6 Dias</span>
+        <span class="stat-label">Segunda a sábado</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-val">2 TATAMES</span>
+        <span class="stat-label">Principal e Mezanino</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-val">+200</span>
+        <span class="stat-label">Alunos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-val">Desde</span>
+        <span class="stat-label">2020</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSORS SECTION -->
+  <section id="professors">
+    <div class="prof-header reveal">
+      <div class="prof-header-text">
+        <div class="eyebrow">
+          Professores e instrutores
+        </div>
+        <h2 class="hero-title" style="font-size: clamp(40px, 5vw, 64px); line-height: 1;">Quem vai te guiar no tatame
+        </h2>
+        <p class="prof-subtitle reveal" style="animation-delay: 0.2s;">
+          Contamos com professores e instrutores experientes e certificados, com sólida trajetória no jiu-jitsu. Nosso
+          compromisso é transmitir técnica, disciplina e segurança em cada treino.
+        </p>
+      </div>
+      <div class="slider-nav">
+        <button class="nav-btn" id="prof-prev">
+          <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+        </button>
+        <button class="nav-btn" id="prof-next">
+          <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="prof-slider-wrapper">
+      <div class="prof-slider" id="prof-slider">
+        <!-- Rodolfo -->
+        <div class="prof-card reveal" style="animation-delay: 0.1s;">
+          <div class="prof-img-container">
+            <video src="assets/img/rod-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Preta
+            </div>
+            <h3 class="prof-name">Rodolfo</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> +15 anos de tatame</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Referência técnica</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Formação Gracie Barra</li>
+            </ul>
+            <p class="prof-desc">
+              "Liderando com exemplo, focado na excelência técnica e nos valores do Jiu-Jitsu."
+            </p>
+          </div>
+        </div>
+
+        <!-- João -->
+        <div class="prof-card reveal" style="animation-delay: 0.2s;">
+          <div class="prof-img-container">
+            <video src="assets/img/joao-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Preta
+            </div>
+            <h3 class="prof-name">João</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Especialista em competição</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Instrutor certificado</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Campeão regional</li>
+            </ul>
+            <p class="prof-desc">
+              "Focado em extrair o máximo potencial de cada aluno através da disciplina e técnica."
+            </p>
+          </div>
+        </div>
+
+        <!-- Iago -->
+        <div class="prof-card reveal" style="animation-delay: 0.3s;">
+          <div class="prof-img-container">
+            <video src="assets/img/iago-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Preta
+            </div>
+            <h3 class="prof-name">Iago</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Expert em Jiu-Jitsu moderno</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Treino de alto rendimento</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Dedicação total ao aluno</li>
+            </ul>
+            <p class="prof-desc">
+              "Acelerando a evolução técnica com foco em detalhes que fazem a diferença no combate."
+            </p>
+          </div>
+        </div>
+
+        <!-- Samuel -->
+        <div class="prof-card reveal" style="animation-delay: 0.4s;">
+          <div class="prof-img-container">
+            <img src="assets/img/samuel.png" alt="Samuel" class="prof-img">
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Preta
+            </div>
+            <h3 class="prof-name">Samuel</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Mentor de gerações</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Defesa Pessoal</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Legado e Tradição</li>
+            </ul>
+            <p class="prof-desc">
+              "Mantendo a essência marcial viva e ensinando o Jiu-Jitsu como filosofia de vida."
+            </p>
+          </div>
+        </div>
+
+        <!-- Juan -->
+        <div class="prof-card reveal" style="animation-delay: 0.5s;">
+          <div class="prof-img-container">
+            <video src="assets/img/juan-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Roxa
+            </div>
+            <h3 class="prof-name">Juan</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Revelação técnica</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Monitor de turmas</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Atleta ativo</li>
+            </ul>
+            <p class="prof-desc">
+              "Energia e técnica aplicada, auxiliando na base sólida para os novos praticantes."
+            </p>
+          </div>
+        </div>
+
+        <!-- Manu -->
+        <div class="prof-card reveal" style="animation-delay: 0.6s;">
+          <div class="prof-img-container">
+            <video src="assets/img/manu-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Azul
+            </div>
+            <h3 class="prof-name">Manu</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Apoio ao Jiu-Jitsu Feminino</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Técnica e persistência</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Foco no aprendizado</li>
+            </ul>
+            <p class="prof-desc">
+              "Inspirando mais mulheres a iniciarem sua jornada no tatame com confiança e garra."
+            </p>
+          </div>
+        </div>
+
+        <!-- Tati -->
+        <div class="prof-card reveal" style="animation-delay: 0.6s;">
+          <div class="prof-img-container">
+            <video src="assets/img/tati-video.mp4" class="prof-img" muted loop playsinline></video>
+          </div>
+          <div class="prof-info">
+            <div class="prof-rank-tag">
+              <iconify-icon icon="mdi:medal"></iconify-icon>
+              Faixa Azul
+            </div>
+            <h3 class="prof-name">Tatiane</h3>
+            <ul class="prof-proof">
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Apoio ao Jiu-Jitsu Feminino</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Técnica e persistência</li>
+              <li><iconify-icon icon="lucide:check-circle"></iconify-icon> Foco no aprendizado</li>
+            </ul>
+            <p class="prof-desc">
+              "Inspirando mais mulheres a iniciarem sua jornada no tatame com confiança e garra."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE SECTION -->
+  <section id="schedule">
+    <div class="schedule-container">
+      <div class="prof-header reveal"
+        style="padding: 0; margin-bottom: 48px; flex-direction: column; align-items: center; text-align: center;">
+        <div class="eyebrow">
+          Sem desculpas
+        </div>
+        <h2 class="hero-title" style="font-size: clamp(40px, 5vw, 64px); line-height: 1;">Vamos treinar</h2>
+      </div>
+
+      <div class="day-selector reveal" style="animation-delay: 0.2s;">
+        <div class="day-tab active" data-day="seg">Segunda</div>
+        <div class="day-tab" data-day="ter">Terça</div>
+        <div class="day-tab" data-day="qua">Quarta</div>
+        <div class="day-tab" data-day="qui">Quinta</div>
+        <div class="day-tab" data-day="sex">Sexta</div>
+        <div class="day-tab" data-day="sab">Sábado</div>
+      </div>
+
+      <div class="schedule-content reveal" style="animation-delay: 0.4s;">
+        <!-- Segunda -->
+        <div class="day-content active" id="seg">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">07:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">10:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">17:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">18:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Teens</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:account-group" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">20:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Iago</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Terça -->
+        <div class="day-content" id="ter">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">06:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB2 / GB3</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Iago</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">07:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">11:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">17:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">18:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Teens</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:account-group" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GBF Feminino</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Manu</span>
+            </div>
+            <iconify-icon icon="mdi:heart-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Samuel</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">20:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Quarta -->
+        <div class="day-content" id="qua">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">07:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">10:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">17:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">18:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Teens</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:account-group" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">20:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Iago</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Quinta -->
+        <div class="day-content" id="qui">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">06:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB2 / GB3</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Iago</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">07:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">11:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1 / GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">17:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">18:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Teens</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:account-group" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GBF Feminino</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Manu</span>
+            </div>
+            <iconify-icon icon="mdi:heart-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB1</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Samuel</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">20:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">GB2</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:flash" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Sexta -->
+        <div class="day-content" id="sex">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">07:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">10:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">17:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi Kids</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">18:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi Teens</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:account-group" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">19:00</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">No-Gi</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:waves" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Sábado -->
+        <div class="day-content" id="sab">
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">09:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Kids Livre</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. João</span>
+            </div>
+            <iconify-icon icon="mdi:emoticon-happy-outline" class="slot-bg-icon"></iconify-icon>
+          </div>
+          <div class="time-slot">
+            <div class="slot-header"><span class="slot-time">10:30</span></div>
+            <div class="slot-info">
+              <div class="slot-class-box">
+                <span class="slot-class">Adulto Livre</span>
+              </div>
+              <span class="slot-prof"><iconify-icon icon="lucide:user"></iconify-icon> Prof. Rodolfo</span>
+            </div>
+            <iconify-icon icon="mdi:shield-check" class="slot-bg-icon"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGACY SECTION (NOSSA HISTÓRIA) -->
+  <section id="legacy">
+    <div class="legacy-container">
+      <div class="legacy-content reveal">
+        <div class="eyebrow">
+          Nosso Legado
+        </div>
+        <h2 class="legacy-title">UM POUCO <br>SOBRE NÓS</h2>
+        <p class="legacy-text">
+          A Gracie Barra Mangueiral nasceu em 2020 com um propósito claro: ser mais do que uma escola de jiu-jitsu.
+          A gente ensina o verdadeiro jiu-jitsu, como uma arte marcial de verdade, com disciplina, respeito e evolução
+          constante.
+          Um ambiente acolhedor e familiar, onde crianças, jovens e adultos treinam juntos e evoluem dentro e fora do
+          tatame.
+          Mais do que treinar, a gente forma pessoas.
+        </p>
+      </div>
+
+      <div class="legacy-features reveal" style="animation-delay: 0.3s;">
+        <div class="legacy-feat-item">
+          <div class="legacy-feat-icon">
+            <iconify-icon icon="mdi:target"></iconify-icon>
+          </div>
+          <span class="legacy-feat-text">Metodologia Oficial Gracie Barra</span>
+        </div>
+        <div class="legacy-feat-item">
+          <div class="legacy-feat-icon">
+            <iconify-icon icon="mdi:account-group-outline"></iconify-icon>
+          </div>
+          <span class="legacy-feat-text">Ambiente Seguro e Familiar</span>
+        </div>
+        <div class="legacy-feat-item">
+          <div class="legacy-feat-icon">
+            <iconify-icon icon="mdi:shield-star-outline"></iconify-icon>
+          </div>
+          <span class="legacy-feat-text">Excelência em Liderança Técnica</span>
+        </div>
+        <div class="legacy-feat-item">
+          <div class="legacy-feat-icon">
+            <iconify-icon icon="mdi:trophy-outline"></iconify-icon>
+          </div>
+          <span class="legacy-feat-text">Foco na Evolução do Aluno</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN SECTION (MENOS TELA, MAIS DISCIPLINA) -->
+  <section id="campaign">
+    <div class="campaign-container">
+      <div class="campaign-header reveal">
+        <div class="eyebrow">
+          Campanha
+        </div>
+        <h2 class="campaign-title">MENOS TELA.<br>MAIS DISCIPLINA.</h2>
+        <p class="campaign-subtitle">
+          Hoje, o tempo de tela já faz parte da rotina da maioria das crianças. Mas o excesso começa a impactar
+          diretamente no comportamento, foco e desenvolvimento.
+        </p>
+      </div>
+
+      <div class="campaign-grid">
+        <div class="campaign-visual reveal">
+          <img src="assets/img/menos-tela.jpg" alt="Criança na tela vs Criança no Tatame">
+        </div>
+        <div class="scenario-stats reveal" style="animation-delay: 0.2s;">
+          <h3 class="hero-title" style="font-size: 2.5rem; margin-bottom: 30px;">O Cenário Atual</h3>
+          <div class="stat-pill">
+            <h4>3 a 6 Horas</h4>
+            <p>Média diária que as crianças passam em frente às telas.</p>
+          </div>
+          <div class="stat-pill">
+            <h4>70% Sedentarismo</h4>
+            <p>Das crianças não atingem o nível ideal de atividade física diária.</p>
+          </div>
+          <div class="stat-pill">
+            <h4>Tempo ao Ar Livre</h4>
+            <p>Caiu drasticamente nos últimos anos, impactando a saúde física e mental.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-block reveal">
+        <div class="impact-grid">
+          <div class="impact-card negative">
+            <span class="impact-val">3 a 6H</span>
+            <p class="impact-label">De tela por dia (Pode impactar o foco e sono)</p>
+          </div>
+          <div class="impact-divider"></div>
+          <div class="impact-card positive">
+            <span class="impact-val">2 a 3H</span>
+            <p class="impact-label">Por semana de jiu-jitsu que podem mudar tudo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-header reveal" style="margin-bottom: 60px;">
+        <h2 class="hero-title" style="font-size: 3.5rem;">O que muda com o movimento</h2>
+        <p class="campaign-subtitle">Crianças que praticam atividades físicas com frequência:</p>
+      </div>
+
+      <div class="benefits-list">
+        <div class="benefit-card reveal">
+          <iconify-icon icon="mdi:brain"></iconify-icon>
+          <h5>Foco e Concentração</h5>
+          <p class="legacy-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">Tendem a ter mais facilidade em
+            tarefas escolares e atividades diárias.</p>
+        </div>
+        <div class="benefit-card reveal" style="animation-delay: 0.1s;">
+          <iconify-icon icon="mdi:heart-pulse"></iconify-icon>
+          <h5>Controle Emocional</h5>
+          <p class="legacy-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">Desenvolvem melhor a
+            resiliência e a gestão de frustrações.</p>
+        </div>
+        <div class="benefit-card reveal" style="animation-delay: 0.2s;">
+          <iconify-icon icon="mdi:sleep"></iconify-icon>
+          <h5>Qualidade do Sono</h5>
+          <p class="legacy-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">Melhoram o descanso profundo,
+            essencial para o crescimento.</p>
+        </div>
+        <div class="benefit-card reveal" style="animation-delay: 0.3s;">
+          <iconify-icon icon="mdi:shield-check"></iconify-icon>
+          <h5>Confiança e Disciplina</h5>
+          <p class="legacy-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">Ganham segurança pessoal e
+            aprendem o respeito à hierarquia.</p>
+        </div>
+      </div>
+
+      <div class="campaign-footer reveal">
+        <h3>Menos tela não é só sobre reduzir.<br>É sobre substituir por algo que realmente desenvolve.</h3>
+        <p class="legacy-text" style="margin-bottom: 40px;">Disciplina. Respeito. Evolução.</p>
+        <a href="https://wa.me/5561996898364?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20para%20meu%20filho(a)."
+          class="btn-primary" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+          <span>AGENDAR AULA EXPERIMENTAL</span>
+          <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="eyebrow">
+            Fale Conosco
+          </div>
+          <h2 class="hero-title" style="font-size: clamp(40px, 5vw, 64px); line-height: 1; margin-bottom: 32px;">ESTAMOS
+            <br>TE ESPERANDO
+          </h2>
+
+          <div class="contact-methods">
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+              </div>
+              <div class="contact-card-content">
+                <span class="label">Fale conosco</span>
+                <a href="https://wa.me/5561996898364" class="val" target="_blank">(61) 99689-8364</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <iconify-icon icon="mdi:map-marker-outline"></iconify-icon>
+              </div>
+              <div class="contact-card-content">
+                <span class="label">Endereço</span>
+                <span class="val">SHJM Praça atividades 5 Lote 4 loja 16, 18 - Jardim Botânico, Brasília - DF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-btn">
+              <iconify-icon icon="mdi:instagram"></iconify-icon>
+            </a>
+            <a href="#" class="social-btn">
+              <iconify-icon icon="mdi:facebook"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-map reveal" style="animation-delay: 0.2s;">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3837.2505785300414!2d-47.8021498!3d-15.895938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a217380080f8d%3A0x640bb4013164809!2sGracie%20Barra%20-JIU%20JITSU%20S%C3%A3o%20Sebasti%C3%A3o%20(Jardins%20Mangueiral)!5e0!3m2!1spt-BR!2sbr!4v1777858413274!5m2!1spt-BR!2sbr"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="assets/img/logo-svg.svg" alt="Gracie Barra Mangueiral">
+        </div>
+        <p>© 2026 Gracie Barra Mangueiral. Todos os direitos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Privacidade</a>
+          <a href="#">Termos</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
