@@ -517,13 +517,20 @@ nav.scrolled .nav-logo {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(200, 16, 46, 0.12),
-      transparent 40%);
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.15),
+    transparent 40%
+  );
   opacity: 0;
   transition: opacity 0.5s;
   pointer-events: none;
   z-index: 0;
+}
+
+.hero-float-card:hover {
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(200, 16, 46, 0.1);
 }
 
 .hero-float-card:hover::before {
@@ -746,24 +753,22 @@ nav.scrolled .nav-logo {
 .prof-card::before {
   content: '';
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, transparent 0 340deg, var(--primary) 360deg);
-  animation: spin 3s linear infinite;
-  transform-origin: center;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.15),
+    transparent 40%
+  );
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s;
   pointer-events: none;
+  z-index: 2;
 }
 
 .prof-card:hover {
   transform: translateY(-15px) scale(1.02);
-  border-color: transparent;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(200, 16, 46, 0.1);
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 16, 46, 0.1);
 }
 
 .prof-card:hover::before {
@@ -992,33 +997,33 @@ nav.scrolled .nav-logo {
 .time-slot::before {
   content: '';
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, transparent 0 340deg, var(--primary) 360deg);
-  animation: spin 3s linear infinite;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.15),
+    transparent 40%
+  );
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .time-slot::after {
   content: '';
   position: absolute;
   inset: 1px;
-  background: rgba(15, 15, 15, 0.7);
-  border-radius: 23px;
+  background: rgba(15, 15, 15, 0.85);
+  border-radius: 15px;
   z-index: -1;
   transition: background 0.3s;
   backdrop-filter: blur(12px);
 }
 
 .time-slot:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: transparent;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(200, 16, 46, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 16, 46, 0.1);
 }
 
 .time-slot:hover::before {
@@ -1100,15 +1105,40 @@ nav.scrolled .nav-logo {
   display: flex;
   align-items: center;
   gap: 24px;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.legacy-feat-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .legacy-feat-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--primary);
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 16, 46, 0.1);
   transform: translateX(15px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.legacy-feat-item:hover::before {
+  opacity: 1;
+}
+
+.legacy-feat-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .legacy-feat-icon {
@@ -1217,12 +1247,38 @@ nav.scrolled .nav-logo {
   border-left: 4px solid var(--primary);
   padding: 24px;
   border-radius: 0 20px 20px 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .stat-pill:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateX(10px);
+}
+
+.stat-pill:hover::before {
+  opacity: 1;
+}
+
+.stat-pill > * {
+  position: relative;
+  z-index: 1;
 }
 
 .stat-pill h4 {
@@ -1317,13 +1373,39 @@ nav.scrolled .nav-logo {
   background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
   border: 1px solid var(--border-s);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .benefit-card:hover {
-  border-color: var(--primary);
-  background: rgba(200, 16, 46, 0.05);
-  transform: translateY(-10px);
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 16, 46, 0.1);
+  transform: translateY(-8px);
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
+.benefit-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .benefit-card iconify-icon {
@@ -1560,15 +1642,40 @@ nav.scrolled .nav-logo {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-s);
   border-radius: 24px;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(200, 16, 46, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .contact-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--primary);
+  border-color: rgba(200, 16, 46, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 16, 46, 0.1);
   transform: translateX(15px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-card-icon {

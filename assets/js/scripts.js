@@ -31,15 +31,14 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Flashlight Hover Effect
-const floatCard = document.getElementById('float-card');
-if (floatCard) {
-  floatCard.addEventListener('mousemove', e => {
-    const rect = floatCard.getBoundingClientRect();
-    floatCard.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    floatCard.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+// Flashlight Hover Effect Pattern (Styleguide)
+document.querySelectorAll('.hero-float-card, .prof-card, .time-slot, .benefit-card, .legacy-feat-item, .contact-card, .stat-pill').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   });
-}
+});
 
 // Video Slider Logic
 const videos = document.querySelectorAll('.slide-video');
