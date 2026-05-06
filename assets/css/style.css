@@ -74,14 +74,11 @@ body::after {
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
+  0%, 100% {
+    transform: translateY(-50%);
   }
-
   50% {
-    transform: translateY(-15px);
+    transform: translateY(calc(-50% - 20px));
   }
 }
 
@@ -501,7 +498,7 @@ nav.scrolled .nav-logo {
 .hero-float-card {
   position: absolute;
   right: 8%;
-  top: 50%;
+  top: 38%;
   transform: translateY(-50%);
   z-index: 2;
   width: 340px;
