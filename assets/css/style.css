@@ -1030,20 +1030,25 @@ nav.scrolled .nav-logo {
   opacity: 1;
 }
 
-.slot-header {
+.slot-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .slot-time {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.4rem;
-  background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #fff;
   line-height: 1;
-  letter-spacing: 1px;
+  letter-spacing: -1px;
+}
+
+.slot-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .slot-tag {
@@ -1434,32 +1439,31 @@ nav.scrolled .nav-logo {
 
 .slot-class {
   font-weight: 700;
-  color: #fff;
+  color: var(--primary);
   text-transform: uppercase;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  font-family: 'Inter', sans-serif;
 }
 
 .slot-prof {
-  color: var(--muted);
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-left: 2px;
 }
 
-.slot-prof iconify-icon {
-  color: var(--primary);
+.mobile-only {
+  display: none !important;
 }
 
-.slot-bg-icon {
-  position: absolute;
-  right: -20px;
-  bottom: -20px;
-  font-size: 120px;
-  color: rgba(255, 255, 255, 0.02);
-  z-index: -1;
-  transform: rotate(-15deg);
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
 }
 
 @keyframes fadeIn {

@@ -93,7 +93,6 @@ const profNext = document.getElementById('prof-next');
 
 if (profSlider && profPrev && profNext) {
   const scrollAmount = 450;
-  let autoSlideInterval;
 
   const nextSlide = () => {
     const maxScroll = profSlider.scrollWidth - profSlider.clientWidth;
@@ -112,24 +111,8 @@ if (profSlider && profPrev && profNext) {
     }
   };
 
-  const startAutoSlide = () => {
-    stopAutoSlide();
-    autoSlideInterval = setInterval(nextSlide, 3500);
-  };
-
-  const stopAutoSlide = () => {
-    clearInterval(autoSlideInterval);
-  };
-
   profNext.addEventListener('click', nextSlide);
   profPrev.addEventListener('click', prevSlide);
-
-  // Start auto-slide initially
-  startAutoSlide();
-
-  // Pause on hover
-  profSlider.addEventListener('mouseenter', stopAutoSlide);
-  profSlider.addEventListener('mouseleave', startAutoSlide);
 
   // Professor Video Hover Logic
   document.querySelectorAll('.prof-card').forEach(card => {
@@ -137,7 +120,6 @@ if (profSlider && profPrev && profNext) {
     if (video) {
       card.addEventListener('mouseenter', () => {
         video.play().catch(e => console.log("Playback failed:", e));
-        stopAutoSlide(); // Redundant but safe
       });
       card.addEventListener('mouseleave', () => {
         video.pause();
